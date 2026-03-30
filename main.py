@@ -44,10 +44,22 @@ if __name__ == "__main__":
         elif op == '5':
             tipo = input("¿buscar por (1) id o (2) nombre?: ")
             if tipo == '1':
-                ok = buscar_cliente_id(id_valor, 'id')
-            else:
-                ok = buscar_cliente_nombre(id_valor, 'nombre')
-            print(" " if ok else "No encontrado.")
+                id_valor = int(input("ID del cliente a buscar: "))
+                ok = buscar_cliente_id(id_valor) 
+                if ok:
+                    print("Cliente encontrado.")
+                    print(ok)
+                else:
+                    print("No encontrado.")
+            elif tipo == '2':
+                buscar_nombre = input("Nombre: ")
+                ok = buscar_cliente_nombre(buscar_nombre)
+                if ok:
+                    print("Cliente encontrado.") 
+                    for r in ok:
+                        print(r)
+                else:
+                    print("No encontrado.")
         elif op == '6':
             print("¡Hasta luego!")
             break

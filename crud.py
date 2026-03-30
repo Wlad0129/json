@@ -40,14 +40,14 @@ def buscar_cliente_id(id_valor, campo_id="id"):
     registros = leer_cliente_json()
     for reg in registros:
      if reg[campo_id] == id_valor:
-        return 
+        return reg
     return None
     
 def buscar_cliente_nombre(nombre):
     registros = leer_cliente_json()
     resultados =[]
     for reg in registros:
-        if reg["nombre"].lower() == nombre.lower():
+        if nombre.lower() in reg["nombre"].lower():
             resultados.append(reg)
-        return resultados
+    return resultados
     
